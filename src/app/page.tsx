@@ -1,95 +1,94 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
 
-export default function Home() {
+import { Flex, styled } from "$/jsx";
+import Aurora from "@/components/Aurora/Aurora";
+import Noise from "@/components/Noise/Noise";
+import Magnet from "@/components/Magnet/Magnet";
+import { motion } from "motion/react";
+import AnimatedLoadingButtonShowcase from "@/components/showcase/AnimatedLoadingButtonShowcase";
+import { Instrument_Serif } from "next/font/google";
+
+const Title = styled("h1", {
+  base: {
+    fontFamily: "Instrument Serif",
+    fontWeight: "400",
+    fontSize: "5rem",
+    lineHeight: "1",
+    textAlign: "center",
+  },
+});
+
+const AnimatedLink = styled("a", {
+  base: {
+    transition: "all 0.2s ease-in-out",
+    color: "zinc.100",
+
+    "&:hover": {
+      color: "amber.200",
+    },
+  },
+});
+
+const Subtitle = styled(motion.h2, {
+  base: {
+    fontFamily: "Instrument Serif",
+    fontWeight: "400",
+    fontSize: "2rem",
+    lineHeight: "1.2",
+    mt: -3,
+    ml: 4,
+  },
+});
+
+const Home = () => {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <Flex
+      width="100vw"
+      height="100vh"
+      backgroundColor="zinc.950"
+      color="zinc.100"
+    >
+      <Aurora amplitude={1.0} blend={1} speed={0.2} />
+      <Noise
+        patternSize={250}
+        patternScaleX={1}
+        patternScaleY={1}
+        patternRefreshInterval={2}
+        patternAlpha={15}
+      />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      <Flex
+        direction="column"
+        gap={4}
+        width="100%"
+        margin={16}
+        zIndex={1}
+        alignItems="center"
+      >
+        <Flex direction="column" alignItems="center">
+          <Title>Experiments</Title>
+          <Magnet magnetStrength={5}>
+            <AnimatedLink href="https://github.com/daanmoura" target="_blank">
+              <Subtitle whileHover={{ scale: 1.1 }}>by Daniel Moura</Subtitle>
+            </AnimatedLink>
+          </Magnet>
+        </Flex>
+
+        <Flex
+          direction="column"
+          gap={8}
+          minWidth="250px"
+          width="40vw"
+          maxWidth="400px"
+          margin={16}
+          zIndex={1}
+          alignItems="center"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <AnimatedLoadingButtonShowcase />
+        </Flex>
+      </Flex>
+    </Flex>
   );
-}
+};
+
+export default Home;

@@ -19,9 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "$/*": ["./styled-system/*"] // if change here, also change in panda.config https://panda-css.com/docs/overview/faq#hmr-does-not-work-when-i-use-tsconfig-paths
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "./styled-system/**/*"],
   "exclude": ["node_modules"]
 }
