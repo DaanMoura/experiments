@@ -6,7 +6,7 @@ import Noise from "@/components/Noise/Noise";
 import Magnet from "@/components/Magnet/Magnet";
 import { motion } from "motion/react";
 import AnimatedLoadingButtonShowcase from "@/components/showcase/AnimatedLoadingButtonShowcase";
-import { Instrument_Serif } from "next/font/google";
+import ColorGeneratorShowcase from "@/components/showcase/ColorGeneratorShowcase";
 
 const Title = styled("h1", {
   base: {
@@ -85,6 +85,7 @@ const Home = () => {
           alignItems="center"
         >
           <AnimatedLoadingButtonShowcase />
+          <ColorGeneratorShowcase />
         </Flex>
       </Flex>
     </Flex>
