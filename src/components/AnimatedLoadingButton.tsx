@@ -8,6 +8,7 @@ const buttonStyle = cva({
     outline: "none",
     bg: "zinc.100",
     color: "zinc.900",
+    minWidth: 8,
     height: 8,
     display: "flex",
     alignItems: "center",
@@ -22,14 +23,22 @@ const SpinningLoaderCircle = styled(LoaderCircle, {
   },
 });
 
+export type AnimatedLoadingButtonStatus =
+  | "idle"
+  | "loading"
+  | "success"
+  | "error";
+
 interface AnimatedLoadingButtonProps extends HTMLMotionProps<"button"> {
   children: React.ReactNode;
-  status: "idle" | "loading" | "success" | "error";
+  status: AnimatedLoadingButtonStatus;
+  tiny?: boolean;
 }
 
 const AnimatedLoadingButton = ({
   status,
   children,
+  tiny,
   ...props
 }: AnimatedLoadingButtonProps) => {
   return (
@@ -54,7 +63,7 @@ const AnimatedLoadingButton = ({
         },
         open: {
           borderRadius: 8,
-          width: 200,
+          width: tiny ? 48 : 200,
         },
         success: {
           pointerEvents: "none",

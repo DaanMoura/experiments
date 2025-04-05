@@ -47,21 +47,22 @@ const Home = () => {
       height="100vh"
       backgroundColor="zinc.950"
       color="zinc.100"
+      overflowY="auto"
     >
-      <Aurora amplitude={1.0} blend={1} speed={0.2} />
+      <Aurora amplitude={1.0} blend={1} speed={0.1} />
       <Noise
-        patternSize={250}
+        patternSize={500}
         patternScaleX={1}
         patternScaleY={1}
-        patternRefreshInterval={2}
-        patternAlpha={15}
+        patternRefreshInterval={4}
+        patternAlpha={28}
       />
 
       <Flex
         direction="column"
         gap={4}
         width="100%"
-        margin={16}
+        my={16}
         zIndex={1}
         alignItems="center"
       >
@@ -77,10 +78,11 @@ const Home = () => {
         <Flex
           direction="column"
           gap={8}
-          minWidth="250px"
+          minWidth="350px"
           width="40vw"
           maxWidth="400px"
-          margin={16}
+          mx={2}
+          pb={4}
           zIndex={1}
           alignItems="center"
         >

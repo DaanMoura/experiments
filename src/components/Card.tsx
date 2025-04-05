@@ -14,6 +14,7 @@ const Root = styled("article", {
     borderColor: "amber.100/12",
     color: "zinc.100",
     width: "100%",
+    minW: "350px",
     py: 3,
     px: 6,
   },

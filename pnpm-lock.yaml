@@ -20,6 +20,9 @@ importers:
       '@radix-ui/colors':
         specifier: ^3.0.0
         version: 3.0.0
+      '@tanstack/react-query':
+        specifier: ^5.71.5
+        version: 5.71.5(react@19.1.0)
       ai:
         specifier: ^4.2.11
         version: 4.2.11(react@19.1.0)(zod@3.24.2)
@@ -578,6 +581,14 @@ packages:
 
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
+
+  '@tanstack/query-core@5.71.5':
+    resolution: {integrity: sha512-XOQ5SyjCdwhxyLksGKWSL5poqyEXYPDnsrZAzJm2LgrMm4Yh6VOrfC+IFosXreDw9HNqC11YAMY3HlfHjNzuaA==}
+
+  '@tanstack/react-query@5.71.5':
+    resolution: {integrity: sha512-WpxZWy4fDASjY+iAaXB+aY+LC95PQ34W6EWVkjJ0hdzWWbczFnr9nHvHkVDpwdR18I1NO8igNGQJFrLrgyzI8Q==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@ts-morph/common@0.25.0':
     resolution: {integrity: sha512-kMnZz+vGGHi4GoHnLmMhGNjm44kGtKUXGnOvrKmMwAuvNjM/PgKVGfUnL7IDvK7Jb2QQ82jq3Zmp04Gy+r3Dkg==}
@@ -1754,6 +1765,13 @@ snapshots:
   '@swc/helpers@0.5.15':
     dependencies:
       tslib: 2.8.1
+
+  '@tanstack/query-core@5.71.5': {}
+
+  '@tanstack/react-query@5.71.5(react@19.1.0)':
+    dependencies:
+      '@tanstack/query-core': 5.71.5
+      react: 19.1.0
 
   '@ts-morph/common@0.25.0':
     dependencies:

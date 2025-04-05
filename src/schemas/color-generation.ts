@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const colorGeneratorRequestSchema = z.object({
-  prompt: z.string().min(1),
+  prompt: z.string().describe("User prompt"),
 });
 
 export const colorGeneratorResponseSchema = z
@@ -19,3 +19,7 @@ export const colorGeneratorResponseSchema = z
       .describe("Color pallete array"),
   })
   .describe("Color pallete");
+
+export type ColorPalleteSchema = z.infer<
+  typeof colorGeneratorResponseSchema
+>["pallete"];

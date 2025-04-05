@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { geistMono, geistSans, instrumentSerif } from "./fonts";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import QueryProvider from "@/components/QueryProvider";
 
 export const metadata: Metadata = {
   title: "Experiments",
@@ -17,7 +19,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
       >
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
